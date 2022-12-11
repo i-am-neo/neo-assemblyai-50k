@@ -1,0 +1,343 @@
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css" media="screen">
+a:link { color:steelblue; text-decoration: none; }
+a:visited { color:steelblue; text-decoration: none; }
+a:hover { text-decoration: underline; }}
+.light { color:#A0A0A0; font-style: italic; }
+html{
+    font: 16px/1.5em "Helvetica Neue", Helvetica, sans-serif;
+}
+/* accomodate mobile device display */
+@media only screen and (max-width: 480px)  {
+   .device_font {
+    font-size: .875em;
+   }
+}
+.indent_this{
+  padding-left:35px;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="../../site/js/jquery.min.js"></script>
+<script src="../../site/js/cookie.js"></script>
+<script>
+   var here = location.href;
+   // remove any trailing #
+   if (here.substr(-1) == '#') {
+      here = here.slice(0, -1);
+   }
+   // in case link from Slack
+   here = here.replace(/&amp;/g,'&');
+   var here_org = here;
+
+   var fn = here.split("/");
+   fn = fn.pop();
+   fn = fn.split('.')[0];
+   fn = fn.split('qa_')[1];
+   var fn_ext = fn + '.mp4';
+
+   var here_uri = here.split('?')[0];
+   here = encodeURIComponent(here);
+
+   // force shared
+   var shared = true;
+
+   var this_user = getCookie('token');
+   var this_access_token = getCookie(fn+'_token');
+   var user = this_user;
+
+   function checkVideo(fn, this_access_token) {
+      $.ajax({
+         url: "https://apis.vidd.ai/v1/videos/check_video.php",
+         data: {
+                  "fn": fn
+         },
+         type: "GET",
+         dataType: "json",
+         success: function (data) {
+            video_privacy = data[fn_ext]["privacy"];
+            if (video_privacy !== 'public') {
+               if (! (this_access_token)) {
+                  window.location.href = "https://vidd.ai/verify/?fn=" + fn + "&a=register_shared&p=neo&cb=" + here;
+               }
+            }
+         },
+         error: function (xhr, status, error) {
+               console.log('error:',error);
+         }
+      })
+   }
+   checkVideo(fn, this_access_token);
+</script>
+  
+
+
+<title>Neo - full recap</title>
+
+<div style="padding:5vw 5vw 0;">
+<img style="border-radius: 50%;float:left;margin-right:15px;" src="https://neo.vidd.ai/images/neo_icon.png" width="95px" height="95px">
+Hallo it's <a href="https://neo.vidd.ai/?full_recap_20F1Xl-fkcE">Neo</a>, your AI teammate.
+<br>
+<div style="padding-left:5vw;">
+&emsp;&bull;&nbsp;This recap should make it easy for you to follow up on meeting topics, even if you didn't attend.
+<br>&emsp;&nbsp;&nbsp;If the recap falls short of that goal, please <a href="mailto:support4neo@vidd.ai?subject=recap feedback">let me know.</a>
+<br>
+&emsp;&bull;&nbsp;To include me in your team meeting, <a href="https://stream.vidd.ai/login/index.html?p=neo&a=register">add me</a> to your meeting calendar.
+</div>
+<br>
+<br>This is the full recap for &rarr; recording for founder.vidd.ai (Fri, Dec 09 2022).
+<br>
+<hr>
+</div>
+
+<div style="padding: 0vh 10vw 5vh;" class="device_font">
+<div style="color:gray;">
+<!--NAME_MENTIONS_HERE--><br>
+For follow up -<br>
+&nbsp;&nbsp;&nbsp;&nbsp;We need<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; What is the next step in the release process?&emsp; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=9&text_in=release%20team">release team</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Marco is responsible for the PR for the variants update.]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; What will I do after the merge?&emsp; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=9&text_in=kkpr">kkpr</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; What changes are ready to go?&emsp; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=9&text_in=changes%20in%20the%20handbook">changes in the handbook</a><br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; What will we do with the action going forward?&emsp; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=30&text_in=Loop%20Xander%20and%20Mark%20into%20that.">Loop Xander and Mark into that.</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Xander and mark aren't here, so we'll take that as the action going forward if they want to chime in .]<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;Who<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; Who will be the host today?&emsp; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=1&text_in=Jeremy">Jeremy</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Joseph will take notes at the Tuesday, December 6th SIG release meeting.]<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;When<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; When is the webinar scheduled?&emsp; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=12&text_in=17th">17th</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Comms is also looking good, we've scheduled all the blogs for the webinar, which is scheduled for the 17th of January, so that's good.]<br>
+<br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; How long would it take to build a tool to do the copying?&emsp; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=25&text_in=six%20month">six month</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[James is in touch with GitHub PMs on project board on behalf of the GitHub admin team to ask them what they need and give them feedback.]<br>
+<br>
+
+</div>
+<br>
+<br>
+
+<br>
+<div class='col-md-12 col-1' id='search_div'>
+Search this meeting
+   <input list='what_happened_list' name='what_happened' size='60' id='what_happened' placeholder='Ask me a question'>
+   <p id='answers_div'></p>
+   <datalist id='what_happened_list'></datalist>
+   <iframe id='video_iframe' width='560' height='315' src='' title='' frameborder='0' allow='accelerometer; encrypted-media; gyroscope; picture-in-picture' allowfullscreen style='display:none'></iframe>
+   <p id='video_iframe_link' class='form-text text-muted'></p>
+</div>
+  
+<br>
+<hr>
+<!--start_key_topics-->
+<div>
+<strong>Key topics in this meeting</strong><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a id="showtopic_security_patch_releases" href="">security patch releases</a>/<a id="showtopic_patch_releases" href="">patch releases</a>/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a id="showtopic_go_changes" href="">go changes</a>/<a id="showtopic_changes" href="">changes</a>/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a id="showtopic_release" href="">release</a>/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a id="showtopic_tracking_project_board" href="">tracking project board</a>/<a id="showtopic_project_board" href="">project board</a>/<a id="showtopic_enhancement_project_board" href="">enhancement project board</a>/<a id="showtopic_project_boards" href="">project boards</a>/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a id="showtopic_enhancements_project_board" href="">enhancements project board</a>/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a id="showtopic_discussion_topics" href="">discussion topics</a>/<br>
+</div>
+<!--end_key_topics-->
+<br>
+<!--start_key_takeaways-->
+<div>
+<strong>Key takeaways</strong><br>
+security patch releases/go patch releases/patch releases/security fixes<br>
+<!--qasstart_3--><span class="class_all class_others  class_go_patch_releases class_security_patch_releases class_patch_releases class_release_engineering">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=3">Marco is responsible for Go's release engineering.</a><br></span><!--qasend_3-->
+<!--qasstart_4--><span class="class_all class_others  class_security_fixes class_regression_fix class_communities">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=4">It is also going to include one important regression fix that was introduced with latest security fixes in communities.</a><br></span><!--qasend_4-->
+<br>
+go changes/change/changes/version changes<br>
+<!--qasstart_6--><span class="class_all class_indent class_others  class_branch_cut class_pull_request class_go_changes class_part class_pr">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=6">I think there's only one pull request that needs to be updated as part of the branch cut, which is to update the variants for the new release.</a><br></span><!--qasend_6-->
+<!--qasstart_8--><span class="class_all class_indent class_others  class_publishing_bot_rules class_handbook class_change">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=8">And then there's another unrelated change that I'm working on in the handbook to change how we update the publishing bot rules.</a><br></span><!--qasend_8-->
+<!--qasstart_10--><span class="class_all class_indent class_others  class_changes class_goal class_note class_discussion class_community">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=10">Marco dropped a note about the goal and changes and then they had a lengthy discussion.</a><br></span><!--qasend_10-->
+<!--qasstart_11--><span class="class_all class_indent class_others  class_goal_status class_version_changes class_version_bumps class_status class_goal">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=11">According to the latest version bumps from Golang, all the teams are in good shape. There was a red status from dogs yesterday.</a><br></span><!--qasend_11-->
+<br>
+release/release management/release team/release lead/releases<br>
+<!--qasstart_9--><span class="class_all class_others  class_kube_cross_image_version class_release_engineering class_variants_update class_release_management class_release_team">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=9">Marco is responsible for the PR for the variants update.</a><br></span><!--qasend_9-->
+<!--qasstart_12--><span class="class_all class_indent class_others  class_release_team class_point class_release class_docs_chairs class_webinar">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=12">Comms is also looking good, we've scheduled all the blogs for the webinar, which is scheduled for the 17th of January, so that's good.</a><br></span><!--qasend_12-->
+<!--qasstart_13--><span class="class_all class_indent class_others  class_release_team class_release_lead class_release class_side class_yay">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=13">The one dot 27 release team is being assembled right now, and Xander is proposed as the next release lead, so that's it from me.</a><br></span><!--qasend_13-->
+<!--qasstart_14--><span class="class_all class_indent class_others  class_release_team class_discussion_items class_comments class_item">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=14">Nobody has any comments or questions for the release team.</a><br></span><!--qasend_14-->
+<!--qasstart_15--><span class="class_all class_indent class_others  class_tracking_project_board class_project_board class_release_team class_release class_one">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=15">GitHub is using the GitHub project board for the first time, and we want to use it again next cycle if it's a good fit.</a><br></span><!--qasend_15-->
+<!--qasstart_21--><span class="class_all class_indent class_others  class_project_board class_cycle class_enhancement class_release class_tool">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=21">The project board is not duplicated. So we manually need to build a new tool to duplicate the.</a><br></span><!--qasend_21-->
+<!--qasstart_23--><span class="class_all class_indent class_others  class_enhancement_tracking_sheets class_track_product_features class_evolution class_point class_release">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=23">If we continue using the same project, we will lose archival functionality. And I know that many vendors use enhancement tracking sheets to track product features.</a><br></span><!--qasend_23-->
+<!--qasstart_33--><span class="class_all class_others  class_week class_releases class_luck class_concerns class_comments">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=33">It's a busy week for SigRelease.</a><br></span><!--qasend_33-->
+<br>
+tracking project board/project board/enhancement project board/project boards<br>
+<!--qasstart_15--><span class="class_all class_indent class_others  class_tracking_project_board class_project_board class_release_team class_release class_one">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=15">GitHub is using the GitHub project board for the first time, and we want to use it again next cycle if it's a good fit.</a><br></span><!--qasend_15-->
+<!--qasstart_16--><span class="class_all class_indent class_others  class_enhancements_project_board class_project_board class_cycle class_views">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=16">Reuse the existing enhancements project board next cycle, and like add new views to it and so on - or create a new project board.</a><br></span><!--qasend_16-->
+<!--qasstart_17--><span class="class_all class_indent class_others  class_project_board class_pluses class_meeting class_decision class_option">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=17">Every cycle, a new project board is created. The old one gets archived.</a><br></span><!--qasend_17-->
+<!--qasstart_19--><span class="class_all class_others  class_project_board class_example class_caps class_entries class_records">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=19">There might be limits to the number of entries in a project board on GitHub.</a><br></span><!--qasend_19-->
+<!--qasstart_20--><span class="class_all class_indent class_others  class_enhancement_project_board class_cycle class_moment class_cut">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=20">If we postpone an issue to the next cycle, we lose the record. To fix it, we need to duplicate the enhancement project board.</a><br></span><!--qasend_20-->
+<!--qasstart_21--><span class="class_all class_indent class_others  class_project_board class_cycle class_enhancement class_release class_tool">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=21">The project board is not duplicated. So we manually need to build a new tool to duplicate the.</a><br></span><!--qasend_21-->
+<!--qasstart_22--><span class="class_all class_indent class_others  class_announcement_tracking_spreadsheets class_project_board class_board class_reasons class_archive">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=22">The announcement tracking spreadsheets were also used some an archive of like what went in a release.</a><br></span><!--qasend_22-->
+<!--qasstart_24--><span class="class_all class_indent class_others  class_project_board class_way_history class_issue class_time class_views">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=24">If we archive in some way history in the same project board, it may get cluttered over time and over releases if there are a lot of different views.</a><br></span><!--qasend_24-->
+<!--qasstart_25--><span class="class_all class_indent class_others  class_project_board class_pay_call class_admin_team class_automation_part class_tool">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=25">James is in touch with GitHub PMs on project board on behalf of the GitHub admin team to ask them what they need and give them feedback.</a><br></span><!--qasend_25-->
+<!--qasstart_26--><span class="class_all class_indent class_others  class_project_boards class_api class_blocker class_folks">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=26">There is no complete API for the new project boards on GitHub.</a><br></span><!--qasend_26-->
+<br>
+enhancements project board/project board/enhancement project board/project boards<br>
+<!--qasstart_15--><span class="class_all class_indent class_others  class_tracking_project_board class_project_board class_release_team class_release class_one">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=15">GitHub is using the GitHub project board for the first time, and we want to use it again next cycle if it's a good fit.</a><br></span><!--qasend_15-->
+<!--qasstart_16--><span class="class_all class_indent class_others  class_enhancements_project_board class_project_board class_cycle class_views">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=16">Reuse the existing enhancements project board next cycle, and like add new views to it and so on - or create a new project board.</a><br></span><!--qasend_16-->
+<!--qasstart_17--><span class="class_all class_indent class_others  class_project_board class_pluses class_meeting class_decision class_option">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=17">Every cycle, a new project board is created. The old one gets archived.</a><br></span><!--qasend_17-->
+<!--qasstart_19--><span class="class_all class_others  class_project_board class_example class_caps class_entries class_records">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=19">There might be limits to the number of entries in a project board on GitHub.</a><br></span><!--qasend_19-->
+<!--qasstart_20--><span class="class_all class_indent class_others  class_enhancement_project_board class_cycle class_moment class_cut">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=20">If we postpone an issue to the next cycle, we lose the record. To fix it, we need to duplicate the enhancement project board.</a><br></span><!--qasend_20-->
+<!--qasstart_21--><span class="class_all class_indent class_others  class_project_board class_cycle class_enhancement class_release class_tool">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=21">The project board is not duplicated. So we manually need to build a new tool to duplicate the.</a><br></span><!--qasend_21-->
+<!--qasstart_22--><span class="class_all class_indent class_others  class_announcement_tracking_spreadsheets class_project_board class_board class_reasons class_archive">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=22">The announcement tracking spreadsheets were also used some an archive of like what went in a release.</a><br></span><!--qasend_22-->
+<!--qasstart_24--><span class="class_all class_indent class_others  class_project_board class_way_history class_issue class_time class_views">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=24">If we archive in some way history in the same project board, it may get cluttered over time and over releases if there are a lot of different views.</a><br></span><!--qasend_24-->
+<!--qasstart_25--><span class="class_all class_indent class_others  class_project_board class_pay_call class_admin_team class_automation_part class_tool">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=25">James is in touch with GitHub PMs on project board on behalf of the GitHub admin team to ask them what they need and give them feedback.</a><br></span><!--qasend_25-->
+<!--qasstart_26--><span class="class_all class_indent class_others  class_project_boards class_api class_blocker class_folks">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=26">There is no complete API for the new project boards on GitHub.</a><br></span><!--qasend_26-->
+<br>
+discussion topics/discussion/discussion items/topics<br>
+<!--qasstart_10--><span class="class_all class_indent class_others  class_changes class_goal class_note class_discussion class_community">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=10">Marco dropped a note about the goal and changes and then they had a lengthy discussion.</a><br></span><!--qasend_10-->
+<!--qasstart_14--><span class="class_all class_indent class_others  class_release_team class_discussion_items class_comments class_item">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=14">Nobody has any comments or questions for the release team.</a><br></span><!--qasend_14-->
+<!--qasstart_30--><span class="class_all class_others  class_action_item class_action class_discussion_topics class_comment class_review">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=30">Xander and mark aren't here, so we'll take that as the action going forward if they want to chime in .</a><br></span><!--qasend_30-->
+<!--qasstart_31--><span class="class_all class_indent class_others  class_enhancements_processes class_documentation_changes class_tracking_issue class_topics">&nbsp;&nbsp;&nbsp;&nbsp;&bull; <a target="_blank" href="https://neo.vidd.ai/p/to_play.html?u=a28ae61a-8733-4e6c-98c7-6e5b05444c36&fn=20F1Xl-fkcE.mp4&seg_index=31">I'd like to see a tracking issue so we can have all the subtasks tracked if this is a good idea.</a><br></span><!--qasend_31-->
+<br>
+</div>
+<!--end_key_takeaways-->
+<br>
+<hr>
+<div style="color:gray">
+<br>
+<a id="showtranscript" href="">Transcript</a><br>
+</div>
+<br>
+<!-- start_chronological_div -->
+<!-- start_transcript-->
+<div id="transcript_div" style="padding: 0 5vw 5vh;"
+<pre>
+Hey, everyone.<br>Welcome to the Tuesday, December 6th SIG release meeting.<br>My name is Jeremy and I'll be the host today.<br>If anybody would like to volunteer to take notes, that would be super, super awesome.<br>Oh, it looks like Joseph did.<br>Thank you, Joseph.<br>If anybody else wants to join in, if you never has, join me or not, I'll do it.<br>All right.<br>Sounds good.<br>Just a reminder before we get going, this meeting is covered by the CNC code of conduct, which basically be summarized as please be excellent to one another.<br>We'll kick us off by allowing anybody that's new to introduce themselves, but it looks like we've got a cast of familiar folks here.<br>So pause for just a second.<br>I think everybody's been around before.<br>So go ahead and we'll jump into sub project updates and we can start off with release engineering.<br>Marco, do you want to want to kick us off with and talk about the Go update stuff?<br>Yeah.<br>So, okay.<br>Let me get started.<br>First of all, as Jeremy just announced, Go updates are planned for today.<br>Those are going to be security patch releases for 1.18<br>and 1.19.<br>And we are expecting those releases today.<br>After those releases are out, we will have more idea about what's exactly the vulnerability and for what actions we need to take.<br>We are however planning to do patch releases for communities 1.25,<br>1.24,<br>1.23<br>and 1.22<br>on Thursday.<br>We intentionally delayed those patch releases for one day so that those are now on Thursday so that we can include those go patch releases that are coming out today.<br>So now that I said those are for patch releases for communities, those are coming out to Thursday and we are also doing one, hopefully final 1.22<br>release.<br>It is going to include the registry change.<br>It is also going to include one important regression fix that was introduced with latest security fixes in communities.<br>And also there's going to be an NCD update because the NCD maintenance are recommending that update because of some data consistency issues that we have.<br>That would be mostly it when it comes to releases.<br>Also 1.26.0<br>is scheduled for Thursday.<br>I will let it to release team to provide the update regarding that, but it is also going to include the GO update that is coming out today.<br>Additionally, what I would like to mention is some of the work that we did over the past seven days.<br>First of all, we managed to triage some stuff when it comes to image promotion and we fixed some bugs when it comes to the identity that is being used.<br>So we are signing images with the correct identity and we also triaged some more stuff and more issues that we have with promotion.<br>I summarized everything in the following text.<br>Here is a link for the zoom.<br>So if anyone interested wants to take a look, we have a lot of free fill to do.<br>If you want to help, please reach out to me and Adolfo on release manager and then we will be happy to sign and share if there is anything else that we know about this or to provide some pointers.<br>Additionally, some update about the OpenBuild service proof of concept that we were working on.<br>We had a meeting with the UC team on Wednesday, last Wednesday, and we showed them how are we doing, what we came up so far, and it turns out that this is solid.<br>They provided some feedback to us and it was more important that we talked about scalability concerns that we had about the traffic and all the other stuff.<br>There are some solutions to that.<br>They think it should be fine, but even if we run into some problems, it is also possible for us to cost some mirrors and that should be pretty much state forward.<br>We are going to document all that as part of the CAP update that I'm working on.<br>I hope that I will be able to finish it by the end of this week.<br>If not, yeah, beginning of next week, we will have it for sure.<br>In the meanwhile, I'm going to share in zoom chat the meeting notes from our meeting for Wednesday.<br>So you can also take a look at that if you're interested.<br>I also see some links here in the meeting notes for this meeting, but this is not what I did.<br>I didn't like this one.<br>So is there anyone else who wants to add something about it?<br>Yeah, so I added the first one.<br>All right.<br>I guess there's only one that the pull request as part of the branch cut, we need to update the variants for the new release.<br>So like the one 26 release.<br>So this PR does that.<br>It doesn't include the go changes.<br>So I wanted to just have a quick chat.<br>Arno looked at it and asked if we wanted to merge it before or after your PR.<br>I'm in the process of updating the branch manager handbook to add that as a branch cut task because we didn't have it anymore.<br>So it just didn't get done as part of that.<br>And then there's another unrelated change that I'm working on in the handbook to change how we update the publishing bot rules.<br>There's a script that does that so we can avoid copy and paste errors and stuff later on.<br>So I have changes in the handbook that are ready to go.<br>But I wanted to link to an example PR for the variants update.<br>So I was curious if you wanted to merge this PR to create the one 26 variant for kube cross and then we can rebase your PR on top of that to bump the go version.<br>Or do we want to wait until yours goes in and then we can do the one 26 variant edition?<br>Either way is fine to me, whichever is preferable to you.<br>Yeah, I think it might be easier if you merge that PR now.<br>And then I will base other PRs because I think once the kube cross image is published, we also need to update in kubernetes.<br>And we can do that with the one PR so it's going to be easier.<br>So let's get it merged and then we can, I will base my PR and that's it.<br>Okay, cool.<br>And then I'll do the follow up kkpr to get the kube cross image version.<br>Okay, cool.<br>Thanks.<br>Yeah, no worries.<br>Any other questions or topics for release engineering?<br>Awesome.<br>Thanks for all those updates and all the hard work to get to where we are today, Marco.<br>Thank you so much.<br>All right, we'll move on to release team now.<br>Does anybody from the release team want to give an update?<br>Hello, yeah, I can give an update.<br>So from our side, everything right now looks kind of good.<br>So we as we already heard, we changed the release date.<br>We communicated this over a lot of different channels.<br>The original discussion was in release management.<br>There was basically, Marco dropped or wrote a note about the goal and changes and then we had quite a lengthy discussion.<br>And right, so we reached out over the to the community.<br>So everybody is aware of that.<br>So hopefully this goes well.<br>Today, we also sent out over sick release, a message about goal or no goal status updates from each team.<br>Right now, everything looks good.<br>Nobody has any big concerns.<br>So probably the only thing would now be the version changes or the version bumps from Golang.<br>So depending on that, all the other teams are kind of kind of in a good shape.<br>So that's great.<br>We had yesterday a red status from dogs, because there were two dogs, which were over quite a long time not merged.<br>But this has been resolved and boxes done kind of and everything is good.<br>But I added already a while back, like a week or two weeks ago, a note to the retro that we should discuss.<br>Docs ready for reviewers the deadline because at the moment, it's not really a deadline.<br>And it's kind of tiring to chase all the folks.<br>And maybe we can improve on that or it would be would be good to improve on that.<br>And also the sick docs chairs and folks agreed on this point.<br>So besides that, comms is also looking good.<br>We scheduled now all the blogs.<br>There is currently a discussion up I can link it in a second, where we have the schedule about all the blogs.<br>And we aim to have all the blogs released before a week before the webinar.<br>The webinar is scheduled on the 17th of January.<br>That's a Tuesday, I think.<br>So from the comms side, also everything good.<br>I have also a couple of like journalists who are interested about the release.<br>So I'm in sync with them too.<br>And right, then there's I think the last point about the next team, next release team.<br>I don't know if if no one wants to talk about this.<br>But so the one dot 27 release team gets also assembled right now.<br>And I propose Xander as next release lead.<br>Yay.<br>That's it from my side.<br>And James, it's next next year as well.<br>Yay.<br>Awesome.<br>I'm excited to see all of the good things that the next release team will be up to.<br>Thank you, Leo and Abirun for your support on the 126 release.<br>We're not there yet.<br>But like, I think we're in a pretty good spot.<br>Oh, right.<br>We can move on to the open discussion items unless anybody has any comments or questions for the release team.<br>All right, hearing none.<br>Sounds like Leo, you have the next item too.<br>You want to kick that off?<br>Sure.<br>Right.<br>This one is about the release team enhancements tracking project board.<br>So this release, we use the GitHub project board for the first time, and we want to use it also next cycle.<br>And right now we have basically two options to proceed with this either we reuse or use the existing project board.<br>So this is I think like option one, which I wrote down.<br>So reuse the existing enhancements project board next cycle, and like add new views to it and so on, or create a new project board.<br>So we have basically every cycle, a new project board, and the old one basically gets archived.<br>And I just wanted to bring this up because maybe it's somewhat relevant or like the decision which is worth it to discuss in the meeting.<br>Maybe I should I just read out basically my minuses and question marks and pluses.<br>Okay, so for the for the option one reuse the existing project boards.<br>So having multiple views is a bit messy.<br>So you have basically all the tabs, and you need to see, okay, where is one or 26, where's one or 27, and so on.<br>And we have multiple views.<br>So it's basically every cycle, a bunch of new views.<br>Also, there might be, I'm not sure might be limits from a GitHub that you only have like maybe 1000 entries in a project board, and eventually we will run out of out of records basically.<br>And also, we cannot have multiple caps, for example, in the same project board.<br>So if you for example, postpone an issue to the next cycle, you'll a little bit lose the record that you also wanted to have it in maybe the second before.<br>So if we have like the record of one or 26, and we postpone it cap, we need to update it and we kind of lose it with the record.<br>So it's maybe it's just a little bit messy.<br>And option two.<br>Basically, it's a little bit cleaner.<br>So it's a clean cut.<br>But we need to duplicate the enhancement project board.<br>And at the moment, there's no automation to it.<br>So we manually need to click it up or maybe build a new tool to duplicate the project board.<br>So but I wanted to kick this off because this is important for the next release, because enhancement starts before the cycle even.<br>So we should get this resolved, hopefully soon.<br>Okay.<br>So carrying forward the conversation that we had.<br>So there are multiple reasons we may need to just bite the bullet right now in copying over things and use a new board.<br>The reason is, if we look at history, the announcement tracking spreadsheets were also used some kind of an archive of like what went in a release.<br>If we keep on using the same project board, we lose that feature.<br>And I know that a lot of vendors use our enhancement tracking sheets to even like track product features as in what needs to get done.<br>That's one thing.<br>So we'll lose archival functionality if we continue using the same project.<br>But I do agree with your point that thinking of the evolution of a cap, it will be in alpha one in one release.<br>It will be in beta in another and stable in some other release.<br>We can't track that evolution in the same board because the issue can be there only once.<br>The other thing is even if let's say we try to archive in some way history in the same project board, the issue is we will have like a lot of different kinds of views and it may get cluttered over time and over releases.<br>And just some information on the automation part, I am in touch with the GitHub PMs on project board on behalf of the GitHub admin team to essentially like ask them like what's in the roadmap and give them feedback of what we need and felt lacking in GitHub new projects.<br>But I would not really hope that this would yield results in the short term and result in anything for one or two seven or maybe even one or two eight.<br>This would be probably a six month kind of time-lending thinking very pragmatically here.<br>But just as a point of information.<br>James, you want to go next?<br>Sure.<br>I was just going to ask, does the GitHub API support everything we would need to build a tool to do the copying?<br>I appreciate we couldn't build such a thing in time for one to seven anyway, but I'll be a pay call even there.<br>Yeah.<br>So I called it out with the GitHub folks that you don't have a complete API yet for the new project boards.<br>And that's a big blocker.<br>So in the GitHub admin team, we have been thinking of automating project permissions as well, but there's no API endpoint for doing this.<br>There are some GraphQL endpoints, but only to mutate view columns and add issues.<br>So Priyanka had worked basically on that script, which would run periodically, see milestone enhancement issues and then add it to the board.<br>That's the only level of automation we have.<br>And the GitHub GraphQL API is capable of doing.<br>Yeah.<br>I think that's for a future.<br>But if you already told us the GitHub folks, that's great.<br>But the API side is kind of like a big blocker already.<br>I think also in different like other projects as well.<br>So, okay.<br>So it's kind of sounds like a new board is the consensus between the stuff from the chat and just what we've discussed so far.<br>Does anybody have any dissenting opinion on that?<br>All right.<br>Sounds like that.<br>So sounds like we'll take that as the action going forward.<br>Loop Xander and Mark into that.<br>Since they're not here.<br>Cool.<br>Any other open discussion topics?<br>Otherwise I'm inclined to.<br>Oh, go ahead.<br>What's on that topic?<br>So the action item, are we assigning this to anybody to take action, review for comment?<br>What's the clear action item on this?<br>We probably should make a GitHub issue to track it just so it gets done and super least for one 20 and tag it with the 127 milestone and we can assign Xander and James and Mark Rosetti.<br>This would involve a lot of documentation changes on enhancements processes.<br>Yeah.<br>Good to have a tracking issue so we can have all the subtasks tracked.<br>Leo, do you want to take the action to create that item and assign it to them?<br>Okay.<br>That'd be really awesome.<br>Thanks.<br>All right.<br>Any other topics?<br>All right.<br>Not hearing any.<br>I'm going to selfishly end the meeting early so I can go and not talk anymore.<br>If you have any questions or comments or concerns, feel free to reach out on SigRelease Slack channel and good luck to everybody that's cutting releases this week.<br>It's going to be exciting on Thursday.<br>Busy week.<br>Busy week.<br>Go better, Jerry.<br>Thanks.<br>I feel better.<br>See you later, everybody.<br>Bye-bye.<br>Bye-bye.<br>Bye.<br>Bye-bye.<br>Bye.<br>
+</pre>
+<!-- end_transcript-->
+<!-- end_chronological_div -->
+</div>
+<!--qas_seg_indexes:[]-->
+
+<script>
+// globals
+var segments = document.querySelectorAll('span');
+var segments_len = segments.length;
+
+var uuid="a28ae61a-8733-4e6c-98c7-6e5b05444c36";
+
+
+function show_class(display_class) {
+   for (var i = 0; i < segments_len; i++) {
+      if (display_class == 'class_all') {
+             if (segments[i].classList.contains('class_indent')) {
+                 segments[i].classList.add('indent_this');
+             }
+      } else {
+                 segments[i].classList.remove('indent_this');
+      }
+      if (segments[i].classList.contains(display_class)) {
+         segments[i].style.display = 'block';
+      } else {
+         segments[i].style.display = 'none';
+      }
+   }
+}
+
+function addListeners() {
+   document.querySelector('body').addEventListener( 'click', function ( event ) {
+      if( event.target.id.includes('showtopic_')) {
+         event.preventDefault();
+         let topic = event.target.id.split('showtopic_')[1];
+         show_class('class_' + topic);
+      }
+   });
+   document.getElementById('showtranscript').addEventListener( 'click', function ( event ) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      $('#transcript_div').toggle();
+   });
+   document.getElementById('what_happened').addEventListener( 'change', function ( event ) {
+         //event.preventDefault();
+         current_value = document.getElementById('what_happened').value;
+         if (current_value) {
+            show_video();
+            show_answer();
+         }
+   });
+};
+
+   function show_answer() {
+         current_link = answers_data[current_value];
+         if (! current_link) {
+         console.log('undefined current_link:',current_link);
+            return;
+         }
+         let s = answers_data[current_value];
+         s = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; ' + s;
+         document.getElementById('answers_div').innerHTML= s;
+   }
+
+   function show_video() {
+         current_link = video_data[current_value];
+         if (! current_link) {
+         //console.log('undefined current_link:',current_link);
+            return;
+         }
+         document.getElementById('video_iframe').src = current_link;
+         if (current_link.includes('youtu')) {
+            video_id = youtube_parser(current_link);
+            ss = current_link.split('start=')[1];
+            //https://www.youtube.com/watch?v=NsohkNfr48Y#t=623s
+            video_link = 'https://www.youtube.com/watch?v={VIDEO_ID}#t={SS}';
+            let s;
+            s = video_link.replace(/\{VIDEO_ID\}/g, video_id);
+            s = s.replace('{SS}', ss);
+
+            template = '<a href="{VIDEO_URL}" target="_blank">Equivalent: {VIDEO_URL}</a>';
+            s = template.replace(/\{VIDEO_URL\}/g, s);
+            document.getElementById('video_iframe_link').innerHTML= s;
+         }
+         document.getElementById('video_iframe').style.display = 'block';
+   }
+
+function loadQA() {
+   $.ajax({
+            url: "https://apis.vidd.ai/v1/topics/test_qas.php",
+            data: {
+                  "u": uuid, "fn_ext": fn_ext
+            },
+            type: "POST",
+            dataType: "json",
+            success: function (data) {
+               data = data['data'];
+               if ('video_urls' in data) {
+                  video_data = data['video_urls'];
+               }
+               if ('answers' in data) {
+                  answers_data = data['answers'];
+               }
+               option_template = '<option value="{VALUE}">';
+               html = '';
+               for (var i in video_data ) {
+                  html = option_template.replace("{VALUE}", i);
+                  $('#what_happened_list').append(html);
+               }
+               addListeners();
+            },
+            error: function (xhr, status, error) {
+               console.log('loadQA error:',error);
+            }
+      });
+};
+
+loadQA();
+addListeners();
+//document.getElementById('showtopic_all').click();
+</script>
+
